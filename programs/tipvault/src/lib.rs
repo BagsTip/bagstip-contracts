@@ -4,7 +4,7 @@
 
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("873HALYp7gZx6tDzPFoxa5UrA7uRJ2eafmCbqwHxSKFH");
 
 #[program]
 pub mod bagstip_tipvault {

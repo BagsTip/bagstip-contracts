@@ -6,7 +6,10 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-bagstip_tipvault = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+bagstip_tipvault = "873HALYp7gZx6tDzPFoxa5UrA7uRJ2eafmCbqwHxSKFH"
+
+[programs.devnet]
+bagstip_tipvault = "873HALYp7gZx6tDzPFoxa5UrA7uRJ2eafmCbqwHxSKFH"
 
 [registry]
 url = "https://api.apr.dev"

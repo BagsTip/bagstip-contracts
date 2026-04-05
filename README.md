@@ -38,9 +38,15 @@ Until then, follow `TASKLIST.md` to add the first test suite.
 solana config set --url devnet
 solana airdrop 2   # if needed
 anchor deploy
+# or:
+# solana program deploy target/deploy/bagstip_tipvault.so --program-id target/deploy/bagstip_tipvault-keypair.json
 ```
 
-Record the **program id** from `Anchor.toml` / deploy output and share the IDL with the API owner.
+**Current devnet program id:** `873HALYp7gZx6tDzPFoxa5UrA7uRJ2eafmCbqwHxSKFH`
+
+Example deploy tx (devnet): `5KmzeAQjiEyqDm9LKabMYJFx3i1qazhvwghkRsRdswfVjPkVSs1UwgVzXqeVQ3nHcF7RryCex1sV6ERukQdxX9P9`
+
+Share **`target/idl/bagstip_tipvault.json`** + program id with the API owner. Do **not** commit `*-keypair.json` (kept under `target/`, which is gitignored).
 
 ## Work tracking
 
@@ -48,4 +54,4 @@ See **`TASKLIST.md`** for issue-aligned checklists ([#1](https://github.com/Bags
 
 ## Program id
 
-The repo uses a **placeholder** program id in `programs/tipvault/src/lib.rs` and `Anchor.toml`. Before mainnet, run `anchor keys list` / `anchor keys sync` so the declared id matches your keypair.
+Declared in `programs/tipvault/src/lib.rs` and `Anchor.toml` (`[programs.localnet]` / `[programs.devnet]`). Run `anchor keys sync` after rotating the program keypair.
