@@ -1,3 +1,4 @@
 [toolchain]
-channel = "1.79.0"
+# 1.79 was too old for some transitive crates (e.g. crypto-common 0.2.x needs Cargo edition2024 support).
+channel = "stable"
 components = ["rustfmt", "clippy"]
