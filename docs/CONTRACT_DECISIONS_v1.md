@@ -1,5 +1,7 @@
 # BagsTip — contract decisions v1
 
+> **Hackathon MVP:** Product and API are driving **custodial escrow + backend release** (no Anchor on client/server for MVP). See **[`MVP_ARCHITECTURE.md`](./MVP_ARCHITECTURE.md)**. This doc stays the **Anchor / v2** reference.
+
 Owner: contracts. Share with API (Midhan) + frontend. Revise with PRs.
 
 ---
