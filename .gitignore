@@ -1,0 +1,21 @@
+# Anchor / Rust
+target/
+**/*.rs.bk
+.anchor/
+test-ledger/
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node (Anchor TS tests)
+node_modules/
+dist/
+.yarn/
+
+# Env
+.env
+.env.*
