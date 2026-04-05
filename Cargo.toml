@@ -2,10 +2,6 @@
 members = ["programs/tipvault"]
 resolver = "2"
 
-# Pin for the whole workspace (see programs/tipvault/Cargo.toml).
-[workspace.dependencies]
-proc-macro2 = "=1.0.94"
-
 [profile.release]
 overflow-checks = true
 lto = "fat"

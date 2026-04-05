@@ -10,7 +10,7 @@ GitHub: [bagstip-contracts issues #1–#3](https://github.com/BagsTip/bagstip-co
 
 - [ ] Install [rustup](https://rustup.rs/) (Rust)
 - [ ] Install [Solana CLI](https://docs.solanalabs.com/cli/install)
-- [ ] Install [Anchor](https://www.anchor-lang.com/docs/installation) matching `Anchor.toml` (`anchor_version`)
+- [ ] Install [Anchor](https://www.anchor-lang.com/docs/installation) **0.31.1** (`cargo install anchor-cli --locked --version 0.31.1`)
 - [ ] From repo root: `anchor build` succeeds (generates IDL under `target/idl/`)
 
 ---

@@ -10,7 +10,7 @@ Install on your machine (not bundled with this repo):
 
 1. [Rust](https://www.rust-lang.org/tools/install) (see `rust-toolchain.toml` for pinned channel)
 2. [Solana CLI](https://docs.solanalabs.com/cli/install)
-3. [Anchor](https://www.anchor-lang.com/docs/installation) **0.30.x** (match `Anchor.toml`)
+3. [Anchor](https://www.anchor-lang.com/docs/installation) **0.31.1** (match `Anchor.toml`; `cargo install anchor-cli --locked --version 0.31.1`)
 
 ## Quick start
 
