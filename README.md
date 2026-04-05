@@ -4,6 +4,8 @@ Solana programs for [BagsTip](https://github.com/BagsTip) — MVP **TipVault** e
 
 ## Prerequisites
 
+Rust/Anchor do not use a Python-style venv: use **rustup** + this repo’s **`rust-toolchain.toml`** and **`Cargo.lock`**.
+
 Install on your machine (not bundled with this repo):
 
 1. [Rust](https://www.rust-lang.org/tools/install) (see `rust-toolchain.toml` for pinned channel)

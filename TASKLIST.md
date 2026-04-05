@@ -1,38 +1,57 @@
 # BagsTip contracts — task list
 
-Tracks [GitHub issues](https://github.com/BagsTip/bagstip-contracts/issues) for the TipVault MVP.
+No Python venv: use **rustup** + **`rust-toolchain.toml`** + per-project **`Cargo.lock`** / `target/`.
 
-## Issue #1 — [MVP] TipVault contract ship checklist
+GitHub: [bagstip-contracts issues #1–#3](https://github.com/BagsTip/bagstip-contracts/issues).
 
-- [ ] Anchor program crate builds (`anchor build`)
-- [ ] Accept tip into escrow (SOL path; token path only if required)
-- [ ] Store creator handle / claim id, tipper, amount, status on-chain or in PDA state
-- [ ] Instruction: release funds to verified creator wallet
-- [ ] Mark tip claimed after successful release
-- [ ] Error handling for invalid state transitions
-- [ ] Devnet deploy (see #3) + IDL export for backend
+---
 
-## Issue #2 — Basic test: create tip → release
+## Phase 0 — Toolchain (once per machine)
 
-- [ ] `tests/` (TS) or `tests/*.rs`: one flow covering create → release
-- [ ] Assertions on final status / balances as appropriate
-- [ ] Document test command in `README.md` (e.g. `anchor test`)
+- [ ] Install [rustup](https://rustup.rs/) (Rust)
+- [ ] Install [Solana CLI](https://docs.solanalabs.com/cli/install)
+- [ ] Install [Anchor](https://www.anchor-lang.com/docs/installation) matching `Anchor.toml` (`anchor_version`)
+- [ ] From repo root: `anchor build` succeeds (generates IDL under `target/idl/`)
 
-## Issue #3 — Devnet deploy + share IDL
+---
 
-- [ ] Configure wallet + cluster for devnet (`solana config set --url devnet`)
-- [ ] Fund deployer (faucet)
-- [ ] `anchor deploy` (or documented equivalent) → record **program id**
-- [ ] Export IDL: `target/idl/bagstip_tipvault.json` (or generated name) committed or linked
-- [ ] Document deploy steps + env vars in `README.md`
-- [ ] Notify backend owner (Member B) with program id + IDL path
+## Phase 1 — Issue #1: TipVault MVP program
 
-## Dependency order
+- [ ] Replace placeholder program id: `anchor keys list` / sync `declare_id!` + `Anchor.toml`
+- [ ] Define accounts: escrow PDA (or vault), tip state (handle/claim id, tipper, amount, status)
+- [ ] Instruction: **create_tip** — transfer SOL into escrow, init state (`pending`)
+- [ ] Instruction: **release_tip** — verify creator (per MVP rules), send SOL to creator, set `claimed`
+- [ ] Custom errors for bad state / wrong signer
+- [ ] `anchor build` + fix clippy/fmt if you enable them
 
-1. #1 scaffold + core instructions  
-2. #2 tests on localnet  
-3. #3 devnet + IDL handoff  
+---
+
+## Phase 2 — Issue #2: One e2e test (create → release)
+
+- [ ] Add Anchor TS test harness (`package.json`, `tsconfig`, `tests/*.ts`) **or** Rust tests if you prefer
+- [ ] Test: create tip → release → assert balances and/or account status
+- [ ] Document in `README.md`: exact command to run tests (e.g. `anchor test`)
+
+---
+
+## Phase 3 — Issue #3: Devnet + IDL handoff
+
+- [ ] `solana config set --url devnet` + wallet with SOL (airdrop)
+- [ ] `anchor deploy` on devnet; record **program id**
+- [ ] Commit or attach **`target/idl/bagstip_tipvault.json`** (or ensure reproducible path in docs)
+- [ ] Extend `README.md`: deploy steps, cluster, program id location
+- [ ] Ping backend owner with program id + IDL (Member B)
+
+---
+
+## Order (do not skip)
+
+1. Phase 0  
+2. Phase 1  
+3. Phase 2  
+4. Phase 3  
 
 ## Done when
 
-- Backend can integrate against a real devnet IDL and program id, and at least one automated test passes locally.
+- [ ] At least one automated test passes locally  
+- [ ] Devnet program id + IDL available for API integration  
