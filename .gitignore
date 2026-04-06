@@ -20,5 +20,7 @@ dist/
 .env
 .env.*
 
-# Local read-only clone of backend (reference only; not part of contracts repo)
+# Local read-only clones (reference only; not part of contracts repo)
 bagstip-api/
+bagstip-web/
+bagstip-bot/
